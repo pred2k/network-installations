@@ -1,12 +1,37 @@
 # network-installations
 
+## router
+
+Linksys E3200 v1.0 with [FreshTomtato](https://freshtomato.org)
+
+### Settings
+
+#### Basic -> Network
+
+WAN Settings:
+
+DNS Server **manual** with:
+* 46.182.19.48
+* 80.241.218.68
+
+LAN:
+
+- [x] Enable DNSSEC
+- [x] Use Stubby (DNS-over-TLS)  
+  Priority: **Strict**
+  
+#### Advanced -> DHCP/DNS
+
+- [x] Prevent DNS-rebind attacks
+- [x] Intercept DNS port
+
 ## pi-hole
 
 https://pi-hole.net/
 
 ### DNS-over-TLS (DoT) for pi-hole
 
-With Raspbian 10 / buster
+For Raspbian 10 / buster!
 
 DNS resolvers i've choosen:
 * https://dismail.de/info.html#dns
@@ -25,6 +50,12 @@ listen_addresses:
     port: 5053
 ```
 
+uncomment line:
+
+```yaml
+dnssec: GETDNS_EXTENSION_TRUE
+```
+
 add my choosen servers:
 ```yaml
 upstream_recursive_servers:
@@ -34,7 +65,7 @@ upstream_recursive_servers:
       - digest: "sha256"
         value: MMi3E2HZr5A5GL+badqe3tzEPCB00+OmApZqJakbqUU=
   - address_data: 46.182.19.48
-    tls_auth_name: "dns2.digitalcourage.dedns2.digitalcourage.de"
+    tls_auth_name: "dns2.digitalcourage.de"
     tls_pubkey_pinset:
       - digest: "sha256"
         value: v7rm6OtQQD3x/wbsdHDZjiDg+utMZvnoX3jq3Vi8tGU=
@@ -54,3 +85,7 @@ now to go http://pi.hole/admin/settings.php?tab=dns and add `127.0.0.1#5053` as 
 
  Read more
  * https://dnsprivacy.org/wiki/display/DP/Configuring+Stubby
+ 
+ # DNSSEC tests
+ 
+ https://dnssec.vs.uni-due.de/
