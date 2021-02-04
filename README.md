@@ -64,11 +64,21 @@ upstream_recursive_servers:
     tls_pubkey_pinset:
       - digest: "sha256"
         value: MMi3E2HZr5A5GL+badqe3tzEPCB00+OmApZqJakbqUU=
+  - address_data: 159.69.114.157
+    tls_auth_name: "fdns2.dismail.de"
+    tls_pubkey_pinset:
+      - digest: "sha256"
+        value: yJYDim2Wb6tbxUB3yA5ElU/FsRZZhyMXye8sXhKEd1w=
   - address_data: 46.182.19.48
     tls_auth_name: "dns2.digitalcourage.de"
     tls_pubkey_pinset:
       - digest: "sha256"
         value: v7rm6OtQQD3x/wbsdHDZjiDg+utMZvnoX3jq3Vi8tGU=
+  - address_data: 5.9.164.112
+    tls_auth_name: "dns3.digitalcourage.de"
+    tls_pubkey_pinset:
+      - digest: "sha256"
+        value: 2WFzfO2/56HpeR+v/l25NPf5dacfxLrudH5yZbWCfdo=
 ```
 
 check if config file is valid: `stubby -C /etc/stubby/stubby.yml -i`
