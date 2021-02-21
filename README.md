@@ -36,6 +36,7 @@ For Raspbian 10 / buster!
 DNS resolvers i've choosen:
 * https://dismail.de/info.html#dns
 * https://digitalcourage.de/support/zensurfreier-dns-server
+* https://www.digitale-gesellschaft.ch/dns/
 
 `sudo apt update && sudo apt install -y stubby`
 
@@ -79,6 +80,10 @@ upstream_recursive_servers:
     tls_pubkey_pinset:
       - digest: "sha256"
         value: 2WFzfO2/56HpeR+v/l25NPf5dacfxLrudH5yZbWCfdo=
+  - address_data: 185.95.218.42
+    tls_auth_name: "dns.digitale-gesellschaft.ch"
+  - address_data: 185.95.218.43
+    tls_auth_name: "dns.digitale-gesellschaft.ch"
 ```
 
 check if config file is valid: `stubby -C /etc/stubby/stubby.yml -i`
