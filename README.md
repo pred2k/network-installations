@@ -4,6 +4,13 @@
 
 Linksys E3200 v1.0 with [FreshTomtato](https://freshtomato.org)
 
+To use own DNS resolvers with Stubby:
+
+1. ssh onto router
+2. download my config file `wget -P /etc/stubby/ https://raw.githubusercontent.com/pred2k/network-installations/main/etc/stubby/stubby_alt.yml`
+3. check if stubby config file is valid: `stubby -C /etc/stubby/stubby_alt.yml -i`
+4. Enable Stubby in Router Settings (**Advanced -> DHCP/DNS**)
+
 ### Settings
 
 #### Basic -> Network
@@ -11,18 +18,17 @@ Linksys E3200 v1.0 with [FreshTomtato](https://freshtomato.org)
 WAN Settings:
 
 DNS Server **manual** with:
-* 46.182.19.48
-* 80.241.218.68
+* 176.9.93.198 (https://dnsforge.de/)
+* 176.9.1.117 (https://dnsforge.de/)
 
 LAN:
 
 - [x] Enable DNSSEC
 - [x] Use Stubby (DNS-over-TLS)  
-  Priority: **Strict**
+  Priority: **No-Resolv**
   
 #### Advanced -> DHCP/DNS
 
-- [x] Prevent DNS-rebind attacks
 - [x] Intercept DNS port
 
 ## pi-hole
@@ -34,6 +40,7 @@ https://pi-hole.net/
 For Raspbian 10 / buster!
 
 DNS resolvers i've choosen:
+* https://dnsforge.de/
 * https://dismail.de/info.html#dns
 * https://digitalcourage.de/support/zensurfreier-dns-server
 * https://www.digitale-gesellschaft.ch/dns/
@@ -103,4 +110,7 @@ now to go http://pi.hole/admin/settings.php?tab=dns and add `127.0.0.1#5053` as 
  
  # DNSSEC tests
  
- https://dnssec.vs.uni-due.de/
+* https://dnssec-tools.org/test/
+* https://en.internet.nl/
+* https://0skar.cz/dns/en/
+* https://cmdns.dev.dns-oarc.net/
