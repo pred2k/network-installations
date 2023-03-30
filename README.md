@@ -109,7 +109,8 @@ now to go http://pi.hole/admin/settings.php?tab=dns and add `127.0.0.1#5053` as 
  * https://dnsprivacy.org/wiki/display/DP/Configuring+Stubby
  
  # DNSSEC tests
- 
+
+* https://rootcanary.org/test.html
 * https://dnssec-tools.org/test/
 * https://en.internet.nl/
 * https://0skar.cz/dns/en/
